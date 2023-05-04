@@ -1,0 +1,22 @@
+# http://editorconfig.org/
+# https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+root = true
+
+# common settings
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length = off
+tab_width = 4
+trim_trailing_whitespace = true
+
+# JSON/YAML
+[*.{json,yml,yaml}]
+indent_size = 2
+tab_width = 2
+
+# markdown
+[*.md]

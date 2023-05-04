@@ -1,0 +1,40 @@
+{
+  "name": "sea-example",
+  "version": "1.0.0",
+  "description": "Single Executable Applications example",
+  "author": {
+    "name": "shimataro",
+    "email": "info@shimataro.me",
+    "url": "https://shimataro.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shimataro/sea-example.git"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "os": [
+    "linux"
+  ],
+  "scripts": {
+    "build": "ncc build ./src/main.ts",
+    "postbuild": "run-s postbuild:*",
+    "postbuild:1-prepare-binary": "cp $(command -v node) sea-example",
+    "postbuild:2-generate-blob": "node --experimental-sea-config sea-config.json",
+    "postbuild:3-postject": "postject sea-example NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "start": "node ./dist/index.js"
+  },
+  "dependencies": {
+    "fastify": "4.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.3",
+    "@vercel/ncc": "0.36.1",
+    "npm-run-all": "4.1.5",
+    "postject": "1.0.0-alpha.5",
+    "typescript": "5.0.4"
+  }
+}
